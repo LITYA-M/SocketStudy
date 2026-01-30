@@ -108,9 +108,11 @@ server_socket.close()
 ```
 
 ##output:
+
 client.py
 
 <img width="622" height="97" alt="image" src="https://github.com/user-attachments/assets/acf119a4-cceb-45fe-84f7-31bee670d6e1" />
+
 server.py
 
 <img width="636" height="120" alt="image" src="https://github.com/user-attachments/assets/ae4b5fb8-3db5-441c-be8a-e64ff5ba274a" />
