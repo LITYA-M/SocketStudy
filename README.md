@@ -56,11 +56,23 @@ Socket programming finds applications in various domains, including web developm
 client.py
 ```
 import socket
+
+#create a socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+#connect to server
 client_socket.connect(('localhost', 8000))
+
+#Print client socket details
 print(f"Client connected from: {client_socket.getsockname()}")
+
+#Recieve message from server
 server_message = client_socket.recv(1024).decode()
+
+#Send message to server
 print(f"Received from server: {server_message}")
+
+#close connection
 client_socket.send("Acknowledgement received from the client.".encode())
 client_socket.close()
 ```
@@ -68,15 +80,29 @@ client_socket.close()
 server.py
 ```
 import socket
+
+#create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+#Bind the socket to host and port
 server_socket.bind(('localhost', 8000))
+
+#Listen for incoming connections
 server_socket.listen(1)
 print("Server is waiting for a connection...")
+
+#Accept a connection
 conn, addr = server_socket.accept()
 print(f"Connected by {addr}")
+
+#Send a message to client
 conn.send("Hello from the server!".encode())
+
+#Recieve a message from client
 data = conn.recv(1024)
 print(f"Received from client: {data.decode()}")
+
+#close connection
 conn.close()
 server_socket.close()
 ```
